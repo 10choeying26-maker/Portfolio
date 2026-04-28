@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenzin Choeying - Health Informatics Professional Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%);
+            color: white;
+            padding: 3rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background: white;
+            border-bottom: 2px solid #1D9E75;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 0;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        nav button {
+            background: none;
+            border: none;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            color: #333;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        nav button:hover {
+            color: #1D9E75;
+            border-bottom-color: #1D9E75;
+        }
+        
+        nav button.active {
+            color: #1D9E75;
+            border-bottom-color: #1D9E75;
+            font-weight: 600;
+        }
+        
+        .content {
+            background: white;
+            padding: 3rem 0;
+            min-height: calc(100vh - 200px);
+        }
+        
+        section {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        section.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        h2 {
+            color: #1D9E75;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #E8F5E9;
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            color: #0F6E56;
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .intro-card {
+            background: #F0F9F7;
+            padding: 2rem;
+            border-left: 4px solid #1D9E75;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .skill-tag {
+            background: #E8F5E9;
+            color: #0F6E56;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 500;
+            border: 1px solid #1D9E75;
+        }
+        
+        .project-card {
+            background: #F9F9F9;
+            border: 1px solid #E0E0E0;
+            border-left: 4px solid #1D9E75;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+        }
+        
+        .project-card h4 {
+            color: #1D9E75;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .project-tag {
+            display: inline-block;
+            background: #E8F5E9;
+            color: #0F6E56;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+            margin-right: 0.5rem;
+        }
+        
+        .award-badge {
+            background: #FFF3E0;
+            color: #E65100;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .education-item {
+            background: #F9F9F9;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #1D9E75;
+        }
+        
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .cert-card {
+            background: #F0F9F7;
+            padding: 1.25rem;
+            border-radius: 8px;
+            border: 1px solid #1D9E75;
+        }
+        
+        .cert-card h4 {
+            color: #0F6E56;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cert-card p {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0.25rem 0;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            background: #C8E6C9;
+            color: #1B5E20;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        
+        .letter-item {
+            background: #F9F9F9;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #1D9E75;
+        }
+        
+        .letter-item h4 {
+            color: #0F6E56;
+            margin-bottom: 0.3rem;
+        }
+        
+        .letter-item p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0.2rem 0;
+        }
+        
+        .highlight-box {
+            background: #E8F5E9;
+            border-left: 4px solid #1D9E75;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 6px;
+        }
+        
+        footer {
+            background: #2C3E50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .profile-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid #1D9E75;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 12px rgba(29, 158, 117, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                padding: 0 1rem;
+            }
+            
+            nav button {
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Tenzin Choeying</h1>
+            <p>Health Informatics Professional • Clinical Innovation • Data-Driven Healthcare</p>
+            <div class="contact-info">
+                <span>📍 Toronto, ON</span>
+                <span>📧 Tenzin.Choeying@georgebrown.ca</span>
+                <span>📱 +1(437) 445-3217</span>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><button class="nav-btn active" data-section="profile">👤 Profile</button></li>
+            <li><button class="nav-btn" data-section="resume">📄 Resume</button></li>
+            <li><button class="nav-btn" data-section="projects">💻 Projects</button></li>
+            <li><button class="nav-btn" data-section="education">🎓 Education</button></li>
+            <li><button class="nav-btn" data-section="letters">✉️ References</button></li>
+        </ul>
+    </nav>
+    
+    <div class="content">
+        <div class="container">
+            <!-- Profile Section -->
+            <section id="profile" class="active">
+                <h2>Professional Profile</h2>
+                <div class="profile-section"><img src="my_photo.jpg.jpeg" alt="Tenzin Choeying Profile" style="width: 180px; height: 180px; object-fit: cover; border-radius: 50%; border: 3px solid #2e7d32; display: block; margin: 0 auto 20px auto;">
+                </div>
+                <div class="intro-card">
+                    <p><strong>Health Informatics postgraduate student at George Brown College</strong> with a clinical foundation as an internationally educated nurse. Bringing two years of high-volume Emergency Department experience to bridge the critical gap between frontline patient care and digital health technology.</p>
+                    <p style="margin-top: 1rem;">Passionate about optimizing electronic health records (EHRs), enhancing clinical workflows, and leveraging data analytics to drive patient-centered care. Proficient in health data standards (HL7, FHIR, SNOMED CT), clinical analytics platforms (SQL, Power BI, Tableau), and healthcare IT project management.</p>
+                    <p style="margin-top: 1rem;">Seeking a Clinical Informatics Co-op role where clinical expertise and technical skills converge to solve meaningful healthcare challenges.</p>
+                </div>
+                
+                <h3>Key Competencies</h3>
+                <div class="skills-grid">
+                    <div class="skill-tag">Clinical Informatics</div>
+                    <div class="skill-tag">EHR Systems</div>
+                    <div class="skill-tag">Health Data Standards</div>
+                    <div class="skill-tag">SQL & Analytics</div>
+                    <div class="skill-tag">Power BI & Tableau</div>
+                    <div class="skill-tag">Clinical Workflows</div>
+                    <div class="skill-tag">Change Management</div>
+                    <div class="skill-tag">Project Management</div>
+                </div>
+            </section>
+            
+            <!-- Resume Section -->
+            <section id="resume">
+                <h2>Resume & Skills</h2>
+                
+                <h3>Technical Skills</h3>
+                <div style="background: #F9F9F9; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: #0F6E56; margin-bottom: 0.5rem;">Data & Analytics</h4>
+                        <p style="color: #666;">SQL, Power BI, Tableau, clinical dashboards, health data analytics</p>
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: #0F6E56; margin-bottom: 0.5rem;">Healthcare Systems</h4>
+                        <p style="color: #666;">HL7, FHIR, SNOMED CT, EHR/EPIS, clinical documentation</p>
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: #0F6E56; margin-bottom: 0.5rem;">Project Management</h4>
+                        <p style="color: #666;">Agile, Jira, Confluence, Microsoft Project, Miro</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #0F6E56; margin-bottom: 0.5rem;">Tools & Platforms</h4>
+                        <p style="color: #666;">Microsoft Visio, BPMN, Microsoft Office Suite, Arya EMR</p>
+                    </div>
+                </div>
+                
+                <h3>Professional Experience</h3>
+                <div class="education-item">
+                    <h4>Emergency Room Nurse</h4>
+                    <p style="color: #666; font-size: 0.95rem; margin-bottom: 0.75rem;">Jigme Dorji Wangchuck Military Hospital, Bhutan | Oct 2023 – Nov 2025</p>
+                    <ul style="margin-left: 1.5rem; color: #666;">
+                        <li>Clinical informatics & documentation: managed EHR/EPIS with focus on data integrity</li>
+                        <li>Clinical leadership: developed and led hospital's first NBLS/NALS training curriculum</li>
+                        <li>Operations: managed triage for 120+ patients/shift with complex therapies</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Projects Section -->
+            <section id="projects">
+                <h2>Featured Projects</h2>
+                
+                <div class="project-card">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.75rem;">
+                        <h4>ClozaSafe</h4>
+                        <span class="award-badge">Academic Project</span>
+                    </div>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Clinical Decision Support System (CDSS) | COMP 4080 - Knowledge Management & Clinical Decision Making</p>
+                    <p style="margin-bottom: 0.75rem;">Developed a sophisticated CDSS for automated monitoring of high-risk clozapine medications in treatment-resistant schizophrenia patients. Designed to integrate with GenCAN/CSAN registry and EMR systems, providing real-time alerts and dosage recommendations.</p>
+                    <p style="color: #666;"><strong>Impact:</strong> Reduces adverse drug events by up to 55% through automated risk stratification and clinical decision support.</p>
+                </div>
+                
+                <div class="project-card">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.75rem;">
+                        <h4>Bridge Frame</h4>
+                        <span class="award-badge" style="background: #FFF3E0; color: #E65100;">🏆 2nd Place Award</span>
+                    </div>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Digital Health Innovation | Digital Health Canada Student Challenge & COMP 4015-4080 Joint Assignment | March 2026</p>
+                    <p style="margin-bottom: 0.75rem;">Co-designed an innovative zero-friction family connection ecosystem addressing senior isolation—a critical public health crisis. Integrated hardware (touch screen device), software (family mobile app), and AI insights (conversational AI, emotion detection, behavioral health tracking).</p>
+                    <p style="color: #666;"><strong>Impact:</strong> Targets 1.1 million lonely older Canadians; proven to reduce dementia risk, improve mental health outcomes, and foster meaningful intergenerational connection.</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <h4 style="color: #0F6E56; margin-bottom: 0.75rem;">Work Sample Documentation</h4>
+                    <p>✓ <strong>ClozaSafe:</strong> Complete project proposal with business case analysis, workflow diagrams, stakeholder engagement strategy, and implementation plans</p>
+                    <p style="margin-top: 0.5rem;">✓ <strong>Bridge Frame:</strong> Full presentation with rationale, technical approach, prototype design, SWOT analysis, and future implementation roadmap</p>
+                    <p style="margin-top: 0.5rem;">✓ Both projects demonstrate expertise in health informatics, clinical decision-making, and technology-driven healthcare innovation</p>
+                </div>
+            </section>
+            
+            <!-- Education Section -->
+            <section id="education">
+                <h2>Education & Credentials</h2>
+                
+                <h3>Academic Credentials</h3>
+                <div class="education-item">
+                    <h4>Health Informatics, Postgraduate Certificate</h4>
+                    <p style="color: #666;">George Brown Polytechnic, Toronto, ON | Jan 2026 – Dec 2026</p>
+                    <p style="margin-top: 0.75rem;">Comprehensive coursework: EHR, Health Data Analytics, HL7/FHIR Standards, Privacy & Security, Health Data Standards implementation</p>
+                </div>
+                
+                <div class="education-item">
+                    <h4>General Nursing and Midwifery (GNM) Diploma</h4>
+                    <p style="color: #666;">Acharya College of Nursing, Bhutan | Sep 2019 - Oct 2022</p>
+                    <p style="margin-top: 0.75rem;">1,500+ hours clinical rotations in high-acuity units with focus on EMR and documentation protocols</p>
+                </div>
+                
+                <h3>Professional Certifications</h3>
+                <div class="cert-grid">
+                    <div class="cert-card">
+                        <h4>Basic Life Support (BLS) CPR</h4>
+                        <p>Heaven Can Wait</p>
+                        <p><strong>Valid:</strong> Jan 2026 – Jan 2027</p>
+                        <span class="status-badge">Current</span>
+                    </div>
+                    <div class="cert-card">
+                        <h4>Standard First Aid with BLS CPR</h4>
+                        <p>Heaven Can Wait</p>
+                        <p><strong>Valid:</strong> Jan 2026 – Jan 2029</p>
+                        <span class="status-badge">Current</span>
+                    </div>
+                    <div class="cert-card">
+                        <h4>Neonatal BLS & NALS Instructor</h4>
+                        <p>Druk Sokchop Program, Bhutan</p>
+                        <p><strong>Completed:</strong> Oct 2024</p>
+                        <span class="status-badge">Current</span>
+                    </div>
+                    <div class="cert-card">
+                        <h4>Registered Nurse (RN)</h4>
+                        <p>Bhutan Medical & Health Council</p>
+                        <p><strong>Issued:</strong> Jun 2023</p>
+                        <span class="status-badge">Current</span>
+                    </div>
+                    <div class="cert-card">
+                        <h4>Health Informatics Case Challenge</h4>
+                        <p>George Brown Polytechnic</p>
+                        <p><strong>Award:</strong> 2nd Place Winner, March 2026</p>
+                        <span class="status-badge">Current</span>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Letters Section -->
+            <section id="letters">
+                <h2>Professional References</h2>
+                
+                <div class="letter-item">
+                    <h4>Jigme Dorji Wangchuck Military Hospital</h4>
+                    <p><strong>Position:</strong> Emergency Room Nurse</p>
+                    <p><strong>Duration:</strong> Oct 2023 – Nov 2025</p>
+                    <p style="margin-top: 0.75rem; line-height: 1.7;">Professional reference letter from Dr. Ugyen Thinley, Medical Officer In-Charge, confirming exceptional clinical nursing knowledge, outstanding professional behavior, excellent working ethics, integrity, strong team collaboration, exceptional emergency department performance, and leadership in NBLS/NALS training program development.</p>
+                </div>
+                
+                <div class="letter-item">
+                    <h4>Jigme Dorji Wangchuck National Referral Hospital</h4>
+                    <p><strong>Position:</strong> Attachment Nurse, Medical Ward</p>
+                    <p><strong>Duration:</strong> June 2023 (Clinical Rotation)</p>
+                    <p style="margin-top: 0.75rem; line-height: 1.7;">Professional reference letter from Ugyen Dorji, Chief Nurse, highlighting exceptional enthusiasm, sense of belonging, ownership, keen learning interest, excellent personal attributes, and strong application of theoretical knowledge into clinical practice with guidance from experienced staff.</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <h4 style="color: #0F6E56; margin-bottom: 0.75rem;">Additional References Available</h4>
+                    <p>Detailed reference letters and further professional recommendations available upon request. Contact information provided in portfolio header.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 Tenzin Choeying. Health Informatics Professional Portfolio.</p>
+        <p>Toronto, ON | Tenzin.Choeying@georgebrown.ca | +1(437) 445-3217</p>
+    </footer>
+    
+    <script>
+        const navButtons = document.querySelectorAll('.nav-btn');
+        const sections = document.querySelectorAll('section');
+        
+        navButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetSection = button.getAttribute('data-section');
+                
+                // Remove active class from all buttons and sections
+                navButtons.forEach(btn => btn.classList.remove('active'));
+                sections.forEach(section => section.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding section
+                button.classList.add('active');
+                document.getElementById(targetSection).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
